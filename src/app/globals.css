@@ -1,0 +1,152 @@
+﻿/**
+ * ========================================
+ * ESTILOS GLOBALES - NEXTWEB THEME
+ * ========================================
+ * Este archivo define el tema visual del sitio.
+ * Usa TailwindCSS 4 con variables CSS nativas.
+ *
+ * Colores: Tema oscuro "Neon Mint" - backgrounds oscuros con acentos vibrantes
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/**
+ * Definición del tema (TailwindCSS 4)
+ * Incluye colores, radios y animaciones personalizadas
+ */
+@theme inline {
+  /* Radios */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Colores del tema */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Colores de glass (transparente) */
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+
+  /* Fuentes */
+  --font-display: "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Animación Aurora */
+  --animate-aurora: aurora 15s ease-in-out infinite alternate;
+}
+
+/**
+ * ========================================
+ * VARIABLES CSS - MODO OSCURO (NEXTWEB)
+ * ========================================
+ * Definición de colores usando OKLCH para mejor precisión de color
+ * y soporte de modo oscuro
+ */
+:root {
+  --radius: 0.875rem;
+
+  /* Colores principales - Tema oscuro NextWeb */
+  --background: oklch(0.16 0.04 220);    /* Azul muy oscuro */
+  --foreground: oklch(0.98 0.01 180);    /* Blanco casi puro */
+
+  /* Tarjetas y popovers */
+  --card: oklch(0.21 0.045 215);
+  --card-foreground: oklch(0.98 0.01 180);
+  --popover: oklch(0.21 0.045 215);
+  --popover-foreground: oklch(0.98 0.01 180);
+
+  /* Primary: Neon Mint - Color principal de la marca */
+  --primary: oklch(0.85 0.22 165);
+  --primary-foreground: oklch(0.16 0.04 220);
+
+  /* Secondary y Accent */
+  --secondary: oklch(0.72 0.18 155);
+  --secondary-foreground: oklch(0.16 0.04 220);
+  --accent: oklch(0.78 0.2 145);
+  --accent-foreground: oklch(0.16 0.04 220);
+
+  /* Muted y destrucitve */
+  --muted: oklch(0.25 0.04 215);
+  --muted-foreground: oklch(0.7 0.03 180);
+  --destructive: oklch(0.7 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 180);
+
+  /* Bordes e inputs */
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.85 0.22 165);
+
+  /* Efectos glass (vidrio esmerilado) */
+  --glass: oklch(1 0 0 / 4%);
+  --glass-border: oklch(0.85 0.22 165 / 18%);
+}
+
+/**
+ * ========================================
+ * ANIMACIÓN AURORA
+ * ========================================
+ * Animación de fondo que crea efecto de aurora boreal
+ * Usada en el componente AuroraBackground
+ */
+@keyframes aurora {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(10%, -10%) scale(1.1);
+  }
+  66% {
+    transform: translate(-5%, 15%) scale(0.9);
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+
+/**
+ * ========================================
+ * CAPA BASE
+ * ========================================
+ * Estilos base que se aplican a todo el documento
+ */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+}
