@@ -34,7 +34,7 @@ export function MobileMenu() {
       {/* Overlay */}
       <div
         onClick={close}
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity md:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden="true"
@@ -42,12 +42,12 @@ export function MobileMenu() {
 
       {/* Panel lateral */}
       <aside
-        className={`fixed right-0 top-0 z-50 flex h-full w-72 max-w-[85vw] flex-col gap-6 border-l border-glass-border bg-background/95 p-6 backdrop-blur-xl transition-transform duration-300 md:hidden ${
+        className={`fixed right-0 top-0 z-50 flex h-full w-80 max-w-[90vw] flex-col gap-6 border-l border-glass-border bg-slate-950/95 p-6 shadow-[-10px_0_40px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-transform duration-300 md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!open}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between border-b border-glass-border pb-4">
           <span className="font-display text-lg font-extrabold uppercase tracking-tight">
             NextWeb
           </span>
@@ -55,7 +55,7 @@ export function MobileMenu() {
             type="button"
             onClick={close}
             aria-label="Cerrar menú"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-foreground/70 hover:text-primary"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-foreground/80 transition-colors hover:bg-white/10 hover:text-primary"
           >
             <X size={18} />
           </button>
@@ -67,7 +67,7 @@ export function MobileMenu() {
               key={item.href}
               href={item.href}
               onClick={close}
-              className="rounded-lg px-3 py-3 text-sm font-medium text-foreground/80 transition-colors hover:bg-glass hover:text-primary"
+              className="rounded-lg border border-transparent bg-white/5 px-4 py-3 text-sm font-medium text-foreground/90 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-primary active:scale-[0.98]"
             >
               {item.label}
             </Link>
