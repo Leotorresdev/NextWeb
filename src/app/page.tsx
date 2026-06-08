@@ -1,6 +1,7 @@
-﻿import Image from "next/image";
+import Image from "next/image";
+import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { waLink } from "@/lib/whatsapp";
+import { waLinkFor } from "@/lib/whatsapp";
 import {
   ArrowRight,
   Code2,
@@ -24,39 +25,45 @@ const services = [
   {
     icon: Globe,
     title: "Landing Pages",
-    desc: "paginas de una sola vista diseñadas para convertir visitantes en clientes potenciales.",
-    bullets: ["Captar clientes", "Promocionar ofertas", "Campañas de marketing", "llevar al cliente al whatsapp"],
+    slug: "landing-pages",
+    desc: "Páginas de una sola vista diseñadas para convertir visitantes en clientes potenciales.",
+    bullets: ["Captar clientes", "Promocionar ofertas", "Campañas de marketing", "Llevar al cliente al WhatsApp"],
   },
   {
     icon: ShoppingCart,
     title: "Tiendas Online",
+    slug: "tiendas-online",
     desc: "E-commerce profesional con pasarela de pagos, webs para vender productos por internet.",
-    bullets: ["Métodos de pago", "Catálogo ilimitado", "Gestion de pedidos", "Carrito de compras"],
+    bullets: ["Métodos de pago", "Catálogo ilimitado", "Gestión de pedidos", "Carrito de compras"],
   },
   {
     icon: Code2,
-    title: "Paginas Corporativas",
-    desc: "Webs mas fromales para empresas que necesitan presencia institucional, que deseen proyectar mayor seriedad",
-    bullets: ["Servicios detallados", "Equipo de trabajo", "Proyectos realizados", "formulario de contacto"],
+    title: "Páginas Corporativas",
+    slug: "paginas-corporativas",
+    desc: "Webs más formales para empresas que necesitan presencia institucional y proyectar mayor seriedad.",
+    bullets: ["Servicios detallados", "Equipo de trabajo", "Proyectos realizados", "Formulario de contacto"],
   },
   {
     icon: Smartphone,
-    title: "Pagina de Reservas",
-    desc: "Perfecta para negocios que trabajen con agendas o atencion programada",
+    title: "Página de Reservas",
+    slug: "paginas-de-reservas",
+    desc: "Perfecta para negocios que trabajen con agendas o atención programada.",
     bullets: ["Servicios", "Horarios", "Reservas", "Calendarios"],
   },
   {
     icon: TrendingUp,
-    title: "Marketing (Catalagos digitales)",
-    desc: "Muestra tus productos o servicios de forma atractiva para captar clientes a través de redes sociales, email o whatsapp",
+    title: "Marketing (Catálogos Digitales)",
+    slug: "catalogos-digitales",
+    desc: "Muestra tus productos o servicios de forma atractiva para captar clientes a través de redes sociales, email o WhatsApp.",
     bullets: ["Fotos", "Descripciones", "Categorías", "Compartir en redes"],
   },
   {
     icon: Layers,
-    title: "Portafolio Webs",
-    desc: "Ideal para creativos, diseñadores, fotógrafos o cualquier profesional que quiera mostrar su trabajo de forma visual y atractiva",
-    bullets: ["Informacion Personal", "Proyectos", "Habilidades", "Contacto"],
-  }
+    title: "Portafolios Web",
+    slug: "portafolios-web",
+    desc: "Ideal para creativos, diseñadores, fotógrafos o cualquier profesional que quiera mostrar su trabajo de forma visual y atractiva.",
+    bullets: ["Información Personal", "Proyectos", "Habilidades", "Contacto"],
+  },
 ];
 
 /**
@@ -126,10 +133,9 @@ const faqs = [
     a: "Diseño, desarrollo, deploy, dominio configurado, capacitación y soporte. Sin costos ocultos.",
   },
   {
-    q: "¿De donde trabajan?",
-    a: "Trabajamos 100% remoto desde Venezuela con clientes de EE.UU. y Europa. Reuniones por Zoom o google meet, y comunicación diaria por WhatsApp.",
+    q: "¿De dónde trabajan?",
+    a: "Trabajamos 100% remoto desde Venezuela con clientes de EE.UU. y Europa. Reuniones por Zoom o Google Meet, y comunicación diaria por WhatsApp.",
   },
-  
 ];
 
 /**
@@ -178,21 +184,22 @@ export default function HomePage() {
           {/* Botones de CTA (Call to Action) */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href={waLink()}
+              href={waLinkFor("hero")}
               target="_blank"
               rel="noopener noreferrer"
+              data-wa-section="hero"
               className="group inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-primary to-accent px-7 py-4 font-bold text-primary-foreground shadow-[0_0_40px_oklch(0.85_0.22_165/0.5)] transition-all hover:scale-105"
             >
               <MessageCircle size={18} />
               Cotizar por WhatsApp
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
-            <a
+            <Link
               href="#servicios"
               className="rounded-xl border border-glass-border bg-glass px-7 py-4 font-bold backdrop-blur-md transition-all hover:bg-white/5"
             >
               Ver servicios
-            </a>
+            </Link>
           </div>
 
           {/* Badges de confianza */}
@@ -241,14 +248,21 @@ export default function HomePage() {
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div
-                  key={s.title}
+                <Link
+                  key={s.slug}
+                  href={`/servicios/${s.slug}`}
                   className="group rounded-2xl border border-glass-border bg-glass p-7 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_30px_oklch(0.85_0.22_165/0.2)]"
                 >
                   <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-linear-to-br from-primary/20 to-accent/20 text-primary">
                     <Icon size={22} strokeWidth={2} />
                   </div>
-                  <h3 className="mb-2 font-display text-xl font-bold">{s.title}</h3>
+                  <h3 className="mb-2 font-display text-xl font-bold">
+                    {s.title}
+                    <ArrowRight
+                      size={16}
+                      className="ml-2 inline-block align-middle text-primary opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                    />
+                  </h3>
                   <p className="mb-5 text-sm leading-relaxed text-foreground/65">{s.desc}</p>
                   <ul className="space-y-1.5 font-mono text-xs text-foreground/50">
                     {s.bullets.map((b) => (
@@ -257,7 +271,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -312,6 +326,12 @@ export default function HomePage() {
                 Proyectos que ya están generando resultados.
               </h2>
             </div>
+            <Link
+              href="/portafolio"
+              className="inline-flex items-center gap-2 self-start font-mono text-xs uppercase tracking-widest text-primary hover:underline"
+            >
+              Ver todos los proyectos <ArrowRight size={14} />
+            </Link>
           </div>
           <div className="grid gap-10 md:grid-cols-2">
             <div className="group">
@@ -321,18 +341,33 @@ export default function HomePage() {
                     src="/sixtenvenezuela.png"
                     alt="Sixten Venezuela"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
                     className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
-                    style={{ objectPosition: 'center' }}
+                    style={{ objectPosition: "center" }}
                   />
                 </div>
               </a>
               <span className="font-mono text-[10px] tracking-widest text-primary">E-COMMERCE</span>
               <h3 className="mb-2 mt-2 font-display text-2xl font-bold">
-                <a href="https://sixtenvenezuela.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Sixten Venezuela</a>
+                <a
+                  href="https://sixtenvenezuela.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  Sixten Venezuela
+                </a>
               </h3>
-              <p className="text-sm text-foreground/60">
+              <p className="mb-3 text-sm text-foreground/60">
                 Tienda online especializada en relojería, con catálogo optimizado, filtros avanzados y flujo de compra integrado con pasarelas locales.
               </p>
+              <Link
+                href="/portafolio/sixten-venezuela"
+                className="inline-flex items-center gap-1 font-mono text-xs text-primary hover:underline"
+              >
+                Ver caso de estudio <ArrowRight size={12} />
+              </Link>
             </div>
 
             <div className="group">
@@ -342,18 +377,33 @@ export default function HomePage() {
                     src="/relojesvenezuela.png"
                     alt="Relojes Vzla"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
                     className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
-                    style={{ objectPosition: 'center' }}
+                    style={{ objectPosition: "center" }}
                   />
                 </div>
               </a>
               <span className="font-mono text-[10px] tracking-widest text-primary">E-COMMERCE</span>
               <h3 className="mb-2 mt-2 font-display text-2xl font-bold">
-                <a href="https://relojesvzla.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Relojes Vzla</a>
+                <a
+                  href="https://relojesvzla.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  Relojes Vzla
+                </a>
               </h3>
-              <p className="text-sm text-foreground/60">
+              <p className="mb-3 text-sm text-foreground/60">
                 E-commerce de relojes con enfoque en conversión: categorías curadas, experiencia móvil optimizada y procesos de pago simplificados.
               </p>
+              <Link
+                href="/portafolio/relojes-vzla"
+                className="inline-flex items-center gap-1 font-mono text-xs text-primary hover:underline"
+              >
+                Ver caso de estudio <ArrowRight size={12} />
+              </Link>
             </div>
           </div>
         </div>
@@ -452,21 +502,29 @@ export default function HomePage() {
             <p className="mx-auto mb-10 max-w-xl text-pretty text-base text-foreground/70 md:text-lg">
               Te respondemos en menos de 1 hora hábil. Sin compromiso, sin spam.
             </p>
-            <a
-              href={waLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-primary to-accent px-8 py-4 font-bold text-primary-foreground shadow-[0_0_40px_oklch(0.85_0.22_165/0.5)] transition-transform hover:scale-105"
-            >
-              <MessageCircle size={20} />
-              Escribinos por WhatsApp ahora
-              <ArrowRight size={18} />
-            </a>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={waLinkFor("floating")}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-wa-section="cta-final"
+                className="inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-primary to-accent px-8 py-4 font-bold text-primary-foreground shadow-[0_0_40px_oklch(0.85_0.22_165/0.5)] transition-transform hover:scale-105"
+              >
+                <MessageCircle size={20} />
+                Escribinos por WhatsApp
+                <ArrowRight size={18} />
+              </a>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 rounded-2xl border border-glass-border bg-glass px-8 py-4 font-bold backdrop-blur-md transition-all hover:bg-white/5"
+              >
+                O usa el formulario de contacto
+                <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
     </PageShell>
   );
 }
-
-

@@ -11,16 +11,20 @@
  * @example
  * <WhatsAppFloating />
  */
+"use client";
+
 import { MessageCircle } from "lucide-react";
-import { waLink } from "@/lib/whatsapp";
+import { waLinkFor, trackWhatsAppClick } from "@/lib/whatsapp";
 
 export function WhatsAppFloating() {
   return (
     <a
-      href={waLink()}
+      href={waLinkFor("floating")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribinos por WhatsApp"
+      data-wa-section="floating"
+      onClick={() => trackWhatsAppClick("floating")}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-4 font-bold text-black shadow-[0_0_30px_rgba(37,211,102,0.55)] transition-all hover:scale-105 hover:shadow-[0_0_45px_rgba(37,211,102,0.8)]"
     >
       {/* Indicador de actividad (efecto de sonido) */}

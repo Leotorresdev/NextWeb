@@ -1,7 +1,8 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-import { waLink } from "@/lib/whatsapp";
+import { waLinkFor } from "@/lib/whatsapp";
+import { MobileMenu } from "@/components/MobileMenu";
 
 const nav = [
   { href: "/#servicios", label: "Servicios" },
@@ -31,26 +32,30 @@ export function SiteHeader() {
         {/* Menú de navegación - Visible en desktop */}
         <div className="hidden gap-7 text-sm font-medium text-foreground/70 md:flex">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="transition-colors hover:text-primary"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Botón de WhatsApp - Visible en todas las pantallas */}
         <a
-          href={waLink()}
+          href={waLinkFor("header")}
           target="_blank"
           rel="noopener noreferrer"
+          data-wa-section="header"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-[0_0_20px_oklch(0.85_0.22_165/0.45)] transition-all hover:scale-105"
         >
           <MessageCircle size={14} />
           <span className="hidden sm:inline">WhatsApp</span>
         </a>
+
+        {/* Menú hamburguesa - Visible solo en mobile */}
+        <MobileMenu />
       </div>
     </nav>
   );

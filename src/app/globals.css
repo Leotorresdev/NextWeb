@@ -52,10 +52,11 @@
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
 
-  /* Fuentes */
-  --font-display: "Inter Tight", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Fuentes - provistas por next/font (variables --font-display/--font-body/--font-mono
+     se inyectan en <html> desde src/app/layout.tsx). Fallback al sistema si no cargan. */
+  --font-display: var(--font-display, "Inter Tight"), system-ui, sans-serif;
+  --font-body: var(--font-body, "Inter"), system-ui, sans-serif;
+  --font-mono: var(--font-mono, "JetBrains Mono"), ui-monospace, monospace;
 
   /* Animación Aurora */
   --animate-aurora: aurora 15s ease-in-out infinite alternate;

@@ -21,7 +21,7 @@ export const projects: Project[] = [
     summary: "Tienda online de relojería con catálogo optimizado y flujo de compra local.",
     content:
       "Desarrollo y optimización de e-commerce para relojería: catálogo filtrable, fichas de producto enfocadas en conversión, integración con pasarelas y procesos de pago locales, y experiencia móvil optimizada para aumentar la tasa de conversión.",
-    coverUrl: "/case-sixtenvenezuela.svg",
+    coverUrl: "/sixtenvenezuela.png",
     url: "https://sixtenvenezuela.com/",
     tags: ["E-commerce", "Relojes", "Tienda Online"],
     featured: true,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     summary: "E-commerce especializado en relojes con foco en experiencia de compra y conversiones.",
     content:
       "Implementación de tienda online con navegación por colecciones, fichas de producto detalladas, optimización para dispositivos móviles y funnels de pago simplificados para reducir el abandono de carrito.",
-    coverUrl: "/case-relojesvzla.svg",
+    coverUrl: "/relojesvenezuela.png",
     url: "https://relojesvzla.com/",
     tags: ["E-commerce", "Conversion", "Relojes"],
     featured: true,

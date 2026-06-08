@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1822"/>
+      <stop offset="100%" stop-color="#0f2330"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="50%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#bef264"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="85%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#bef264" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#bef264" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Logo / brand mark -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="72" height="72" rx="16" fill="#0a1822" stroke="#5eead4" stroke-width="2"/>
+    <text x="36" y="50" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="800" fill="#5eead4" text-anchor="middle">N</text>
+    <text x="96" y="52" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#ffffff" letter-spacing="2">NEXTWEB</text>
+  </g>
+
+  <!-- Main headline -->
+  <text x="80" y="320" font-family="Inter Tight, Inter, system-ui, sans-serif" font-size="76" font-weight="800" fill="#ffffff">Páginas web y software</text>
+  <text x="80" y="410" font-family="Inter Tight, Inter, system-ui, sans-serif" font-size="76" font-weight="800" fill="url(#text)">que generan clientes.</text>
+
+  <!-- Subhead -->
+  <text x="80" y="470" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="500" fill="#cbd5e1" opacity="0.8">Landing pages, tiendas online y software a medida.</text>
+
+  <!-- Footer -->
+  <text x="80" y="560" font-family="JetBrains Mono, monospace" font-size="20" font-weight="500" fill="#5eead4" letter-spacing="3">COTIZACIÓN POR WHATSAPP EN 24H</text>
+  <text x="1120" y="560" font-family="JetBrains Mono, monospace" font-size="20" font-weight="500" fill="#94a3b8" text-anchor="end" letter-spacing="2">NEXTWEB.DEV</text>
+</svg>
