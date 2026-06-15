@@ -7,6 +7,7 @@ import { MobileMenu } from "@/components/MobileMenu";
 const nav = [
   { href: "/#servicios", label: "Servicios" },
   { href: "/#portfolio", label: "Portfolio" },
+  { href: "/#sobre-nosotros", label: "Sobre nosotros" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#contacto", label: "Contacto" },
 ] as const;

@@ -19,7 +19,7 @@ import {
   ShoppingCart,
   TrendingUp,
 } from "lucide-react";
-
+import AboutSection from "@/components/AboutSection";
 
 const services = [
   {
@@ -27,21 +27,36 @@ const services = [
     title: "Landing Pages",
     slug: "landing-pages",
     desc: "Páginas de una sola vista diseñadas para convertir visitantes en clientes potenciales.",
-    bullets: ["Captar clientes", "Promocionar ofertas", "Campañas de marketing", "Llevar al cliente al WhatsApp"],
+    bullets: [
+      "Captar clientes",
+      "Promocionar ofertas",
+      "Campañas de marketing",
+      "Llevar al cliente al WhatsApp",
+    ],
   },
   {
     icon: ShoppingCart,
     title: "Tiendas Online",
     slug: "tiendas-online",
     desc: "E-commerce profesional con pasarela de pagos, webs para vender productos por internet.",
-    bullets: ["Métodos de pago", "Catálogo ilimitado", "Gestión de pedidos", "Carrito de compras"],
+    bullets: [
+      "Métodos de pago",
+      "Catálogo ilimitado",
+      "Gestión de pedidos",
+      "Carrito de compras",
+    ],
   },
   {
     icon: Code2,
     title: "Páginas Corporativas",
     slug: "paginas-corporativas",
     desc: "Webs más formales para empresas que necesitan presencia institucional y proyectar mayor seriedad.",
-    bullets: ["Servicios detallados", "Equipo de trabajo", "Proyectos realizados", "Formulario de contacto"],
+    bullets: [
+      "Servicios detallados",
+      "Equipo de trabajo",
+      "Proyectos realizados",
+      "Formulario de contacto",
+    ],
   },
   {
     icon: Smartphone,
@@ -176,9 +191,9 @@ export default function HomePage() {
 
           {/* Subtítulo */}
           <p className="mx-auto mt-8 max-w-2xl text-pretty text-base text-foreground/70 md:text-lg">
-            Diseñamos y desarrollamos sitios web modernos, tiendas online y software a
-            medida para empresas que quieren crecer en serio. Cotización gratis en 24
-            horas.
+            Diseñamos y desarrollamos sitios web modernos, tiendas online y
+            software a medida para empresas que quieren crecer en serio.
+            Cotización gratis en 24 horas.
           </p>
 
           {/* Botones de CTA (Call to Action) */}
@@ -192,7 +207,10 @@ export default function HomePage() {
             >
               <MessageCircle size={18} />
               Cotizar por WhatsApp
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
             <Link
               href="#servicios"
@@ -235,13 +253,16 @@ export default function HomePage() {
       <section id="servicios" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-2xl">
-            <span className="mb-4 block font-mono text-xs text-primary">SERVICIOS</span>
+            <span className="mb-4 block font-mono text-xs text-primary">
+              SERVICIOS
+            </span>
             <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
               Todo lo que tu negocio necesita
               <span className="text-primary">.</span>
             </h2>
             <p className="mt-4 text-foreground/60">
-              Desde tu primera landing page hasta plataformas empresariales completas.
+              Desde tu primera landing page hasta plataformas empresariales
+              completas.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -263,7 +284,9 @@ export default function HomePage() {
                       className="ml-2 inline-block align-middle text-primary opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
                     />
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-foreground/65">{s.desc}</p>
+                  <p className="mb-5 text-sm leading-relaxed text-foreground/65">
+                    {s.desc}
+                  </p>
                   <ul className="space-y-1.5 font-mono text-xs text-foreground/50">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2">
@@ -286,7 +309,9 @@ export default function HomePage() {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-2xl">
-            <span className="mb-4 block font-mono text-xs text-primary">CÓMO TRABAJAMOS</span>
+            <span className="mb-4 block font-mono text-xs text-primary">
+              CÓMO TRABAJAMOS
+            </span>
             <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
               Simple. Rápido. Transparente.
             </h2>
@@ -303,7 +328,9 @@ export default function HomePage() {
                     0{i + 1}
                   </span>
                   <Icon size={22} className="mb-4 text-primary" />
-                  <h3 className="mb-2 font-display text-lg font-bold">{p.title}</h3>
+                  <h3 className="mb-2 font-display text-lg font-bold">
+                    {p.title}
+                  </h3>
                   <p className="text-sm text-foreground/60">{p.desc}</p>
                 </div>
               );
@@ -321,7 +348,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-xl">
-              <span className="mb-4 block font-mono text-xs text-primary">PORTFOLIO</span>
+              <span className="mb-4 block font-mono text-xs text-primary">
+                PORTFOLIO
+              </span>
               <h2 className="font-display text-4xl font-extrabold tracking-tight">
                 Proyectos que ya están generando resultados.
               </h2>
@@ -335,7 +364,11 @@ export default function HomePage() {
           </div>
           <div className="grid gap-10 md:grid-cols-2">
             <div className="group">
-              <a href="https://sixtenvenezuela.com/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://sixtenvenezuela.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-3xl border border-glass-border bg-white/5 transition-all group-hover:border-primary/40 flex items-center justify-center">
                   <Image
                     src="/sixtenvenezuela.png"
@@ -348,7 +381,9 @@ export default function HomePage() {
                   />
                 </div>
               </a>
-              <span className="font-mono text-[10px] tracking-widest text-primary">E-COMMERCE</span>
+              <span className="font-mono text-[10px] tracking-widest text-primary">
+                E-COMMERCE
+              </span>
               <h3 className="mb-2 mt-2 font-display text-2xl font-bold">
                 <a
                   href="https://sixtenvenezuela.com/"
@@ -360,7 +395,9 @@ export default function HomePage() {
                 </a>
               </h3>
               <p className="mb-3 text-sm text-foreground/60">
-                Tienda online especializada en relojería, con catálogo optimizado, filtros avanzados y flujo de compra integrado con pasarelas locales.
+                Tienda online especializada en relojería, con catálogo
+                optimizado, filtros avanzados y flujo de compra integrado con
+                pasarelas locales.
               </p>
               <Link
                 href="/portafolio/sixten-venezuela"
@@ -371,7 +408,11 @@ export default function HomePage() {
             </div>
 
             <div className="group">
-              <a href="https://relojesvzla.com/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://relojesvzla.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-3xl border border-glass-border bg-white/5 transition-all group-hover:border-primary/40 flex items-center justify-center">
                   <Image
                     src="/relojesvenezuela.png"
@@ -384,7 +425,9 @@ export default function HomePage() {
                   />
                 </div>
               </a>
-              <span className="font-mono text-[10px] tracking-widest text-primary">E-COMMERCE</span>
+              <span className="font-mono text-[10px] tracking-widest text-primary">
+                E-COMMERCE
+              </span>
               <h3 className="mb-2 mt-2 font-display text-2xl font-bold">
                 <a
                   href="https://relojesvzla.com/"
@@ -396,7 +439,9 @@ export default function HomePage() {
                 </a>
               </h3>
               <p className="mb-3 text-sm text-foreground/60">
-                E-commerce de relojes con enfoque en conversión: categorías curadas, experiencia móvil optimizada y procesos de pago simplificados.
+                E-commerce de relojes con enfoque en conversión: categorías
+                curadas, experiencia móvil optimizada y procesos de pago
+                simplificados.
               </p>
               <Link
                 href="/portafolio/relojes-vzla"
@@ -410,6 +455,46 @@ export default function HomePage() {
       </section>
 
       {/* =====================
+          SECCIÓN SOBRE NOSOTROS
+          =====================
+          Dos desarrolladores con opción de descarga de CV
+      */}
+      <section id="sobre-nosotros" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <span className="mb-4 block font-mono text-xs text-primary">
+                SOBRE NOSOTROS
+              </span>
+              <h2 className="font-display text-4xl font-extrabold tracking-tight">
+                Conoce al equipo
+              </h2>
+              <p className="mt-4 text-foreground/60">
+                Somos un equipo pequeño pero potente, listos para ayudarte a
+                crecer.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <AboutSection
+              name="Ing. Erickson Graterol"
+              role="Full Stack Developer"
+              description={`Desarrollador Full Stack con un poco\nmas de 2 años de experiencia en el\nciclo completo de desarrollo de\nsoftware. Poseo expertise robusto en\nmúltiples lenguajes de Backend y\nFrontend, y habilidades sólidas en\ngestión de infraestructura, incluyendo\nCloud Computing (AWS),\nadministración de servidores, y\ndiseño/optimización de Bases de\nDatos.`}
+              cvHref="/cv-erickson.pdf"
+            />
+
+            <AboutSection
+              name="Juan Pérez"
+              role="Full Stack Developer"
+              description={`Full Stack Developer con experiencia en React, Next.js, Node.js y diseño de UX. Enfocado en front-end, performance y accesibilidad. Manejo de bases de datos SQL/NoSQL y despliegues en Vercel/AWS.`}
+              cvHref="/cv-erickson.pdf"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* =====================
           SECCIÓN TESTIMONIOS
           =====================
           Opiniones de clientes
@@ -417,7 +502,9 @@ export default function HomePage() {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 text-center">
-            <span className="mb-4 block font-mono text-xs text-primary">TESTIMONIOS</span>
+            <span className="mb-4 block font-mono text-xs text-primary">
+              TESTIMONIOS
+            </span>
             <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
               Lo que dicen nuestros clientes
             </h2>
